@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Portfolio profesional de Eduardo Vidal Millán, estudiante de ASIR con experiencia en soporte IT, reparación de equipos e infraestructura informática.">
+  <title>Eduardo Vidal Millán | Técnico Informático</title>
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #101a2b;
+      --surface-2: #142239;
+      --text: #edf4ff;
+      --muted: #a8b8d0;
+      --blue: #43a5ff;
+      --cyan: #65e0f2;
+      --line: rgba(144, 183, 230, .18);
+      --shadow: 0 18px 55px rgba(0,0,0,.25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 80% 0%, rgba(33,117,218,.18), transparent 34rem),
+        radial-gradient(ellipse at 0% 35%, rgba(38,188,218,.08), transparent 28rem),
+        var(--bg);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(8,13,24,.86); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; }
+    .brand span { color: var(--blue); }
+    .navlinks { display: flex; gap: 22px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--cyan); }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 56px; padding-top: 72px; padding-bottom: 90px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--cyan); font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px var(--cyan); }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.4rem); line-height: 1.02; letter-spacing: -.065em; margin: 20px 0; }
+    h1 span { color: var(--blue); }
+    .lead { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.2rem); max-width: 680px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border-radius: 10px; padding: 12px 18px; font-weight: 750; border: 1px solid var(--line); transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: linear-gradient(135deg, #2389ed, #35b9e9); color: #04101d; border-color: transparent; }
+    .btn.secondary { background: rgba(255,255,255,.025); }
+    .hero-card { position: relative; padding: 28px; border: 1px solid rgba(85,165,255,.3); border-radius: 24px; background: linear-gradient(145deg, rgba(20,34,57,.94), rgba(10,17,30,.9)); box-shadow: var(--shadow); overflow: hidden; }
+    .hero-card::before { content: ""; position: absolute; width: 190px; height: 190px; right: -80px; top: -80px; border-radius: 50%; background: rgba(67,165,255,.15); filter: blur(2px); }
+    .terminal-top { display: flex; gap: 7px; margin-bottom: 25px; }
+    .terminal-top i { display: block; width: 9px; height: 9px; border-radius: 50%; background: #48617f; }
+    .terminal-top i:first-child { background: #ff6d7b; } .terminal-top i:nth-child(2) { background: #ffd166; } .terminal-top i:nth-child(3) { background: #55d6a6; }
+    .code { font: .92rem/2 "SFMono-Regular", Consolas, monospace; color: var(--muted); overflow-wrap: anywhere; }
+    .code .key { color: var(--cyan); } .code .value { color: #dceaff; }
+    .status { display: inline-flex; gap: 8px; align-items: center; margin-top: 22px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .83rem; }
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 30px; max-width: 720px; }
+    .kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .15em; font-size: .78rem; font-weight: 850; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -.04em; margin: 8px 0 12px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .panel { border: 1px solid var(--line); background: rgba(16,26,43,.76); border-radius: 18px; padding: 25px; }
+    .panel p { color: var(--muted); margin-bottom: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .tag { color: #cfe7ff; border: 1px solid rgba(67,165,255,.25); background: rgba(67,165,255,.08); border-radius: 8px; padding: 6px 10px; font-size: .84rem; }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(20,34,57,.76), rgba(13,21,35,.8)); border-radius: 16px; padding: 22px; }
+    .icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: var(--cyan); background: rgba(67,165,255,.12); font-size: 1.2rem; margin-bottom: 15px; }
+    h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .skill p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .timeline { display: grid; gap: 16px; }
+    .job { display: grid; grid-template-columns: 190px 1fr; gap: 25px; border: 1px solid var(--line); background: rgba(16,26,43,.7); border-radius: 16px; padding: 24px; }
+    .job-meta { color: var(--muted); font-size: .9rem; }
+    .job-meta strong { display: block; color: var(--cyan); font-size: .96rem; margin-bottom: 5px; }
+    .job p { color: var(--muted); margin: 5px 0 0; }
+    .job ul { color: var(--muted); padding-left: 20px; margin: 12px 0 0; }
+    .education { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .edu { padding: 23px; border: 1px solid var(--line); border-radius: 16px; background: rgba(16,26,43,.7); }
+    .edu .date { color: var(--cyan); font-size: .84rem; font-weight: 750; }
+    .edu p { color: var(--muted); font-size: .93rem; margin-bottom: 0; }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; border: 1px solid rgba(67,165,255,.28); border-radius: 22px; padding: clamp(24px, 5vw, 45px); background: linear-gradient(125deg, rgba(24,65,107,.4), rgba(16,26,43,.8)); }
+    .contact p { color: var(--muted); }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { border: 1px solid var(--line); border-radius: 10px; padding: 13px 15px; overflow-wrap: anywhere; background: rgba(5,12,22,.28); }
+    .contact-link small { display: block; color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; min-height: auto; padding-top: 70px; }
+      .hero-card { max-width: 520px; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .education { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .navlinks { gap: 12px; font-size: .8rem; }
+      .navlinks a:nth-child(2) { display: none; }
+      nav { min-height: 62px; }
+      .about-grid, .skills, .job, .contact { grid-template-columns: 1fr; }
+      .job { gap: 10px; padding: 20px; }
+      section { padding: 54px 0; }
+      .hero { padding-bottom: 60px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">EV<span>.</span> <span style="color:var(--text)">Eduardo Vidal</span></a>
+      <div class="navlinks">
+        <a href="#perfil">Perfil</a><a href="#habilidades">Habilidades</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="inicio">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Técnico informático · Perfil junior</div>
+        <h1>Eduardo Vidal<br><span>Millán</span></h1>
+        <p class="lead">Estudiante de Administración de Sistemas Informáticos en Red (ASIR), con formación previa en SMR y experiencia práctica en reparación de equipos, soporte IT e infraestructura informática.</p>
+        <div class="actions">
+          <a class="btn primary" href="#experiencia">Ver experiencia <span aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="#contacto">Contactar</a>
+        </div>
+        <div class="status"><span class="dot"></span> En formación y desarrollo profesional</div>
+      </div>
+      <aside class="hero-card" aria-label="Resumen de perfil">
+        <div class="terminal-top"><i></i><i></i><i></i></div>
+        <div class="code">
+          <div><span class="key">perfil</span> = {</div>
+          <div>&nbsp;&nbsp;<span class="key">"área"</span>: <span class="value">"Sistemas y soporte IT"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"formación"</span>: <span class="value">"ASIR · SMR"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"intereses"</span>: <span class="value">["Redes", "Linux",</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Virtualización", "Seguridad"]</span></div>
+          <div>}</div>
+        </div>
+        <div class="tags"><span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">Redes</span><span class="tag">Virtualización</span></div>
+      </aside>
+    </section>
+
+    <section id="perfil">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">01 / Perfil</div>
+          <h2>Sobre mí</h2>
+          <p>Una base técnica construida con formación y experiencia práctica.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Mi enfoque</h3>
+            <p>Soy una persona responsable, resolutiva y con motivación por seguir aprendiendo. Me interesa la administración de sistemas, la infraestructura de redes y la ciberseguridad, y busco seguir desarrollándome profesionalmente en el sector tecnológico.</p>
+          </article>
+          <article class="panel">
+            <h3>Áreas de interés</h3>
+            <p>Me interesa trabajar en entornos donde pueda colaborar en la instalación, el mantenimiento y la resolución de incidencias de sistemas y equipos informáticos.</p>
+            <div class="tags"><span class="tag">Soporte técnico</span><span class="tag">Administración de sistemas</span><span class="tag">Infraestructura IT</span><span class="tag">Ciberseguridad</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">02 / Competencias</div>
+          <h2>Habilidades técnicas</h2>
+          <p>Conocimientos relacionados con mi formación en SMR y ASIR y mi experiencia en soporte e infraestructura.</p>
+        </div>
+        <div class="skills">
+          <article class="skill"><div class="icon" aria-hidden="true">▣</div><h3>Sistemas operativos</h3><p>Instalación, configuración y mantenimiento de sistemas Windows y Linux.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">⌘</div><h3>Redes informáticas</h3><p>TCP/IP, direccionamiento IPv4, subnetting, VLAN y resolución de incidencias de conectividad.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">▤</div><h3>Infraestructura IT</h3><p>Experiencia práctica en montaje e instalación de servidores, switches y firewalls.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">◇</div><h3>Virtualización</h3><p>Creación y gestión de máquinas virtuales mediante Hyper-V.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">⌁</div><h3>Soporte técnico</h3><p>Diagnóstico y resolución de incidencias de hardware, software y sistemas operativos.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">$_</div><h3>Servicios y acceso remoto</h3><p>Conocimientos básicos de servicios de red y acceso remoto mediante SSH.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">▦</div><h3>Mantenimiento de equipos</h3><p>Reparación de ordenadores, sustitución de componentes y puesta a punto de equipos.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">⌗</div><h3>Bases de datos</h3><p>Conocimientos básicos de SQL y gestión de bases de datos con PostgreSQL y pgAdmin.</p></article>
+          <article class="skill"><div class="icon" aria-hidden="true">✓</div><h3>Competencias personales</h3><p>Comunicación, empatía, resolución de problemas y disposición para aprender.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">03 / Trayectoria</div>
+          <h2>Experiencia profesional</h2>
+          <p>Experiencia práctica en reparación de equipos, atención al cliente y soporte de infraestructura IT.</p>
+        </div>
+        <div class="timeline">
+          <article class="job">
+            <div class="job-meta"><strong>Inforein</strong>Verano de 2026</div>
+            <div><h3>Manos remotas e infraestructura IT</h3><p>Participación en tareas de soporte e infraestructura informática, incluyendo el montaje e instalación de equipamiento. También colaboré en el departamento de soporte IT del Hotel Don Carlos de Marbella.</p><ul><li>Montaje e instalación de firewalls, servidores y switches.</li><li>Colaboración en tareas de soporte informático en entorno hotelero.</li></ul></div>
+          </article>
+          <article class="job">
+            <div class="job-meta"><strong>Cash Converters</strong>3 meses de experiencia</div>
+            <div><h3>Reparación informática y atención al cliente</h3><p>Trabajo en el almacén realizando tareas de reparación y mantenimiento de equipos informáticos. Durante las últimas semanas, también atendí al público y ayudé a cubrir las necesidades de los clientes.</p><ul><li>Reparación y mantenimiento de equipos informáticos.</li><li>Atención al cliente y asistencia sobre sus necesidades.</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">04 / Formación</div>
+          <h2>Formación académica</h2>
+        </div>
+        <div class="education">
+          <article class="edu"><div class="date">Octubre 2025 – Junio 2027</div><h3>Administración de Sistemas Informáticos en Red (ASIR)</h3><p>DigitechFP · Actualmente cursando.</p></article>
+          <article class="edu"><div class="date">Octubre 2023 – Junio 2025</div><h3>Sistemas Microinformáticos y Redes (SMR)</h3><p>DigitechFP · Titulación completada.</p></article>
+          <article class="edu"><div class="date">Septiembre 2018 – Junio 2022</div><h3>Educación Secundaria Obligatoria</h3><p>I.E.S. Concha Méndez Cuesta.</p></article>
+        </div>
+        <div class="about-grid" style="margin-top:16px">
+          <article class="panel"><h3>Idiomas</h3><p><strong style="color:var(--text)">Inglés:</strong> nivel B2 indicado en el CV. Curso B2.2 realizado en ETC International College, Bournemouth.</p></article>
+          <article class="panel"><h3>Información adicional</h3><p>Permiso de conducir B y vehículo propio.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <div class="kicker">05 / Contacto</div>
+            <h2>¿Hablamos?</h2>
+            <p>Estoy interesado en seguir creciendo en el ámbito de la informática, el soporte IT y la administración de sistemas. Puedes contactar conmigo por correo electrónico o teléfono.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:eduvimi24@gmail.com"><small>Correo electrónico</small>eduvimi24@gmail.com</a>
+            <a class="contact-link" href="tel:+34611207829"><small>Teléfono</small>611 20 78 29</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year">2026</span> Eduardo Vidal Millán</span><span>Portfolio profesional · Técnico informático</span></div></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
